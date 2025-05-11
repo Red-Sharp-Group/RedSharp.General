@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(SolutionDir)..\Builds\Properties\NetSdk.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>$(TargetNetCore);$(TargetNetStandard);$(TargetNetFramework)</TargetFrameworks>
+    <Configurations>Debug;Release;Debug(NetFramework);Debug(NetStandard);Debug(NetCore)</Configurations>
+    <AssemblyTitle>Red Sharp: Special collections set</AssemblyTitle>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <Title>$(AssemblyTitle)</Title>
+    <Description>The package contains set of collections that can be used in specific situations.</Description>
+    <PackageIcon>PackageIcon.png</PackageIcon>
+    <PackageReadmeFile>PackageReadme.md</PackageReadmeFile>
+    <PackageTags>Collections</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RedSharp.General\RedSharp.General.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == '$(TargetNetFramework)' OR '$(TargetFramework)' == '$(TargetNetStandard)'">
+    <PackageReference Include="System.Memory" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <None Include="PackageIcon.png" Pack="true" PackagePath="\" />
+    <None Include="PackageReadme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

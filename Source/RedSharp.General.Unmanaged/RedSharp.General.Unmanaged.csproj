@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(SolutionDir)..\Builds\Properties\NetSdk.props" />
+  
+  <PropertyGroup>
+    <TargetFrameworks>$(TargetNetCore);$(TargetNetFramework)</TargetFrameworks>
+    <Configurations>Debug;Release;Debug(NetFramework);Debug(NetCore)</Configurations>
+    <AssemblyTitle>Red Sharp: Unmanaged memory utilization library</AssemblyTitle>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks> 
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <Title>$(AssemblyTitle)</Title>
+    <Description>The package contains classes, helpers and interfaces to work with unmanaged memory.</Description>
+    <PackageIcon>PackageIcon.png</PackageIcon>
+    <PackageReadmeFile>PackageReadme.md</PackageReadmeFile>
+    <PackageTags>Memory;Native memory;Unmanaged memory;Shared memory</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RedSharp.General\RedSharp.General.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == '$(TargetNetFramework)'">
+    <PackageReference Include="System.Memory" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <None Include="PackageIcon.png" Pack="true" PackagePath="\" />
+    <None Include="PackageReadme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
