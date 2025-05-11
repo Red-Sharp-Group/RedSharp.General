@@ -6,7 +6,7 @@ Look, it is a simple, plain solution. I am not trying to hide something under `p
 
 If you like to use the packages or source code, [you are welcome to do it](LICENSE). If my code helps someones to solve their tasks - it was all worth it.
 
-<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/>
 
 ## General purpose library
 
@@ -45,4 +45,4 @@ The RedSharp.General.Unmanaged contains abstractions and wrappers for interactio
 
 >The package is available for `.Net Framework` and `.Net Core`. The `.Net Standard` is not an option because I do not want to reimplement the `NativeMemory` class on my own.
 
->The shared memory functionality is OS specific, I have decided that it would be easier to make a simple `if ... else ...` statement than to make a OS specific libraries.
+>The shared memory functionality is OS specific, I have decided that it would be easier to make a simple `if ... else ...` statement than to make OS specific libraries.

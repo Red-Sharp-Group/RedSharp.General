@@ -41,6 +41,8 @@ To import this file add next line to the .csproj file:
     <OutDir>$(ProjectBuildDirectory)$(TargetFramework)\</OutDir>
 
     <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Red-Sharp-Group/RedSharp.General.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Red-Sharp-Group/RedSharp.General</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageOutputPath>$(ProjectBuildDirectory)nupkg\</PackageOutputPath>
   </PropertyGroup>
